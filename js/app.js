@@ -4,24 +4,25 @@
 
 var guessesRight = 0;
 
-
-var userName = prompt('What is your name?');
-console.log('Hi' + userName);
-alert('Hi there ' + userName + '! I hope your day is going well!');
-
-
+function questionOne() {
+  var userName = prompt('What is your name?');
+  console.log('Hi' + userName);
+  alert('Hi there ' + userName + '! I hope your day is going well!');
+}
+questionOne();
 
 // //question two
+function questionTwo() {
+  var homeLocation = prompt('Am I from Seattle?').toLowerCase();
 
-var homeLocation = prompt('Am I from Seattle?').toLowerCase();
 
-
-if (homeLocation === 'yes' || homeLocation === 'y') {
-  //     // console.log('Yes I am from Seattle');
-  alert('Yes I am from Seattle');
-  guessesRight++;
+  if (homeLocation === 'yes' || homeLocation === 'y') {
+    //     // console.log('Yes I am from Seattle');
+    alert('Yes I am from Seattle');
+    guessesRight++;
+  }
 }
-
+questionTwo();
 
 // // console.log('Nice, ' + homeLocation + ' is great!');
 
@@ -29,27 +30,28 @@ if (homeLocation === 'yes' || homeLocation === 'y') {
 
 // // question three
 
+function questionThree() {
+  var whyCoding = prompt('Have I worked in tech before?').toLowerCase();
 
-var whyCoding = prompt('Have I worked in tech before?').toLowerCase();
-
-if (whyCoding === 'no' || whyCoding === 'n') {
-  // console.log('No I have not worked in tech before');
-  alert('No I have not worked in tech before');
+  if (whyCoding === 'no' || whyCoding === 'n') {
+    // console.log('No I have not worked in tech before');
+    alert('No I have not worked in tech before');
+  }
 }
-
+questionThree();
 
 // console.log('That is great that ' + whyCoding + 'is a goal of yours! ');
 
 // // question four
-
-var milVeteran = prompt('Am I a military veteran?').toLowerCase();
-if (milVeteran === 'yes' || milVeteran === 'y') {
-  // console.log('Yes, I am a veteran');
-  alert('Yes, I am a veteran');
-  guessesRight++;
+function questionFour() {
+  var milVeteran = prompt('Am I a military veteran?').toLowerCase();
+  if (milVeteran === 'yes' || milVeteran === 'y') {
+    // console.log('Yes, I am a veteran');
+    alert('Yes, I am a veteran');
+    guessesRight++;
+  }
 }
-
-
+questionFour();
 
 // console.log('Woah! I hear that ' + milVeteran + ' is a amazing!');
 
@@ -59,76 +61,79 @@ if (milVeteran === 'yes' || milVeteran === 'y') {
 
 
 
+function questionFive() {
+  var carFan = prompt('Do I like cars?').toLowerCase();
 
-var carFan = prompt('Do I like cars?').toLowerCase();
 
 
-
-if (carFan === 'yes' || carFan === 'y') {
-  // console.log('Yes, I love cars!')
-  alert('Yes, I love cars!');
-  guessesRight++;
+  if (carFan === 'yes' || carFan === 'y') {
+    // console.log('Yes, I love cars!')
+    alert('Yes, I love cars!');
+    guessesRight++;
+  }
 }
-console.log('I like cars too' + carFan + ' my favorite car is a ferrari.');
+questionFive();
+//console.log('I like cars too' + carFan + ' my favorite car is a ferrari.');
 
 
 // question six number game... REMEMBER TO BREAK THE WHILE LOOP
 
+function questionSix() {
 
+  outerloop: while (true) {
+    var attempt = 0;
+    var randomNumber = 5;
+    var userGuess;
 
-outerloop: while (true) {
-  var attempt = 0;
-  var randomNumber = 5;
-  var userGuess;
+    while (attempt < 4) {
+      userGuess = parseInt(prompt('Guess a number between 1 and 10'));
+      console.log(typeof userGuess);
+      if (userGuess === randomNumber) {
+        alert('You guessed the right number. Winner!');
+        guessesRight++;
+        break outerloop;
 
-  while (attempt < 4) {
-    userGuess = parseInt(prompt('Guess a number between 1 and 10'));
-    console.log(typeof userGuess);
-    if (userGuess === randomNumber) {
-      alert('You guessed the right number. Winner!');
-      guessesRight++;
-      break outerloop;
+      } else if (userGuess > randomNumber) {
+        alert('You guessed too high');
+        attempt++; //guess again
+      } else if (userGuess < randomNumber) {
+        alert('Your guess is too low');
+        attempt++;
+      } //else {
+      //     alert('You guessed right!');
+      // }
 
-    } else if (userGuess > randomNumber) {
-      alert('You guessed too high');
-      attempt++; //guess again
-    } else if (userGuess < randomNumber) {
-      alert('Your guess is too low');
-      attempt++;
-    } //else {
-    //     alert('You guessed right!');
-    // }
-
-    if (attempt === 4 && userGuess !== randomNumber) {
-      alert('the right answer was: ' + randomNumber + ' You did not win this time, try again next time!');
+      if (attempt === 4 && userGuess !== randomNumber) {
+        alert('the right answer was: ' + randomNumber + ' You did not win this time, try again next time!');
+      }
     }
   }
 }
-
-
+questionSix();
 // question seven  favorite month
 
+function questionSeven() {
 
+  var calMonths = ['february', 'october', 'december'];
+  var attemptsLeft = 6;
+  var guessMonth = prompt('What are three of my favorite months?');
+  var correctMonth = false;
 
-var calMonths = ['february', 'october', 'december'];
-var attemptsLeft = 6;
-var guessMonth = prompt('What are three of my favorite months?');
-var correctMonth = false;
-
-while (attemptsLeft > 0 && !correctMonth) {
-  attemptsLeft--;
-  for (var i = 0; i < calMonths.length; i++) {
-    if (guessMonth === calMonths[i]) {
-      correctMonth = true;
-      alert('Great! ' + guessMonth + ' is one of my favorite months!');
-      guessesRight++;
+  while (attemptsLeft > 0 && !correctMonth) {
+    attemptsLeft--;
+    for (var i = 0; i < calMonths.length; i++) {
+      if (guessMonth === calMonths[i]) {
+        correctMonth = true;
+        alert('Great! ' + guessMonth + ' is one of my favorite months!');
+        guessesRight++;
+      }
+    }
+    if (attemptsLeft > 0 && !correctMonth) {
+      guessMonth = prompt('Nice guess, but try again!');
+    }
+    if (attemptsLeft === 0 && !correctMonth) {
+      alert('You had SIX TRIES and couldn\'t guess THREE out of 12\?');
     }
   }
-  if (attemptsLeft > 0 && !correctMonth) {
-    guessMonth = prompt('Nice guess, but try again!');
-  }
-  if (attemptsLeft === 0 && !correctMonth) {
-    alert('You had SIX TRIES and couldn\'t guess THREE out of 12\?');
-  }
 }
-
+questionSeven();
